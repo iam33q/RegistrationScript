@@ -24,7 +24,8 @@ public class RegistrationScript {
                     uname = input1.next();
                     for (String user : unames) // Checking against existing usernames
                     {
-                        if (uname.equalsIgnoreCase(user)) {
+                        if (uname.equalsIgnoreCase(user))
+                        {
                             throw new SecurityException("Sorry, this username is already taken!");
                         }
                     }
@@ -35,7 +36,8 @@ public class RegistrationScript {
                 }
             }
 
-            try {
+            try
+            {
                 Console console = System.console();
                 char[] passArray;
                 Scanner input2 = new Scanner(System.in);
@@ -56,10 +58,13 @@ public class RegistrationScript {
                 if ((pass.length() < 8)) // Self-explanatory initial password check
                 {
                     throw new SecurityException("Your password is too short.");
-                } else if ((pass.length() > 99))
+                }
+                else if ((pass.length() > 99))
                 {
                     throw new SecurityException("Your password is so secure that it's actually illegal.");
-                } else {
+                }
+                else
+                {
                     criterion1 = true;
                 }
 
@@ -69,34 +74,45 @@ public class RegistrationScript {
                     if (chnum == 10 || chnum == 32) // Invalid characters. Not sure how they would end up here, maybe through copy/pasting them in.
                     {
                         throw new SecurityException("Invalid character used.");
-                    } else if (((chnum > 32) && (chnum < 48))) // Special character check
+                    }
+                    else if (((chnum > 32) && (chnum < 48))) // Special character check
                     {
                         criterion4 = true;
-                    } else if ((chnum > 47) && (chnum < 58))  // Number check
+                    }
+                    else if ((chnum > 47) && (chnum < 58))  // Number check
                     {
                         criterion3 = true;
-                    } else if ((chnum > 64) && (chnum < 91)) // Capital Letter check
+                    }
+                    else if ((chnum > 64) && (chnum < 91)) // Capital Letter check
                     {
                         criterion2 = true;
                     }
                 }
 
-                if ((criterion1 && criterion2) && (criterion3 && criterion4)) {
+                if ((criterion1 && criterion2) && (criterion3 && criterion4))
+                {
                     System.out.println("Now please type in your password again.");
-                } else {
+                }
+                else
+                {
                     throw new SecurityException("Your password does not meet the conditions above, please review it.");
                 }
                 // passArray = console.readPassword();
                 // pass2 = new String(passArray);
                 pass2 = input3.next();
 
-                if (pass.equals(pass2)) {
+                if (pass.equals(pass2))
+                {
                     System.out.println("Registration Successful!");
                     bing = false;
-                } else {
+                }
+                else
+                {
                     throw new SecurityException("Your passwords do not match. Please try typing your password again.");
                 }
-            } catch (SecurityException e) {
+            }
+            catch (SecurityException e)
+            {
                 System.out.println(e); // This looks less scary than e.printStackTrace(); .
             }
         } while(bing);
